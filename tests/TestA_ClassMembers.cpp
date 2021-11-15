@@ -28,8 +28,8 @@ int main() {
   Distribution myDist(initMean, initStddev);
 
   // check public member variable access
-  auto mean = myDist.mean;
-  auto stddev = myDist.stddev;
+  [[maybe_unused]] auto mean = myDist.mean;
+  [[maybe_unused]] auto stddev = myDist.stddev;
 
   TEST_ASSERT(mean == initMean,
               "Mean has the wrong value after it was set explicitly");

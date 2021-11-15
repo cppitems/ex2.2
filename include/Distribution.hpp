@@ -1,4 +1,7 @@
+#pragma once
+
 #include <cmath>
+#include <type_traits>
 #include <vector>
 
 /*
@@ -13,7 +16,7 @@
       the two member variables from a Distribution of data
   Part 2:
   Change the constructor "Distribution(const std::vector<T>&)" so it
-  accepts any STL data structure (not just std::vector) and 
+  accepts any STL data structure (not just std::vector) and
   the class template parameter T is still deduced automatically,
   so an object can be constructed using "Distribution(<anySTLcontainer>)"
 */

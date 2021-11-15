@@ -3,27 +3,20 @@
 #include <array>
 #include <cmath>
 #include <initializer_list>
+#include <iostream>
 
 /// templated vector type supporting many operator overloads
-template <class T, unsigned D = 3> class SpaceVector {
-  std::array<T, D> x;
+template <class T, unsigned D = 3> struct SpaceVector {
+  std::array<T, D> x = {};
 
-public:
-  SpaceVector() {}
+  template <class... ARGS>
+  SpaceVector(ARGS &&...args)
+      : x{static_cast<T>(std::forward<ARGS>(args))...} {}
 
-  SpaceVector(std::initializer_list<T> list) {
-    auto it = list.begin();
-    for(unsigned i = 0; i < D; ++i) {
-      x[i] = *it;
-      ++it;
-    }
+  template <class ARG> SpaceVector(ARG &&init) {
+    std::fill(x.begin(), x.end(), static_cast<T>(std::forward<ARG>(init)));
   }
 
-  SpaceVector(T &&init) {
-    for (unsigned i = 0; i < D; ++i) {
-      x[i] = init;
-    }
-  }
   SpaceVector operator+(const SpaceVector &other) const {
     SpaceVector res;
     for (unsigned i = 0; i < D; ++i) {

@@ -3,6 +3,10 @@ cmake_minimum_required(VERSION 3.0)
 # set up the project for building all tests
 project(Tests LANGUAGES CXX)
 
+#set the required CPP standard for the project
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
 # make a custom target for usage with make
 # all tests can be built using `make myTests`
 add_custom_target(myTests)
@@ -10,8 +14,9 @@ add_custom_target(myTests)
 set(MY_TEST_NAMES "")
 list(APPEND MY_TEST_NAMES "TestA_ClassMembers")
 list(APPEND MY_TEST_NAMES "TestB_Vector")
-list(APPEND MY_TEST_NAMES "TestC_List")
-list(APPEND MY_TEST_NAMES "TestD_Deque")
+list(APPEND MY_TEST_NAMES "TestC_SpaceVector")
+list(APPEND MY_TEST_NAMES "TestD_List")
+list(APPEND MY_TEST_NAMES "TestE_Deque")
 
 foreach(MY_TEST_NAME ${MY_TEST_NAMES})
   add_executable(${MY_TEST_NAME} ${MY_TEST_NAME}.cpp testasserts.hpp)

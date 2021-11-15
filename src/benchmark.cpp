@@ -1,5 +1,4 @@
 #include <Distribution.hpp>
-
 #include <SpaceVector.hpp>
 
 #include <cmath>
@@ -76,7 +75,7 @@ int main() {
   test_containers<float>();
 
   std::cout << "SpaceVector<double>:" << std::endl;
-  test_containers<SpaceVector<double>>();
+  test_containers<SpaceVector<double,3>>();
 
   return 0;
 }

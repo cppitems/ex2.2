@@ -4,13 +4,13 @@ This exercise is part **2** of 3 parts of EX2. See also [Item 000](https://cppit
 
 ## Task 1
 
-Your first task is to implement a *user-defined type* `Distribution` which can hold the *arithmetic mean* and the *standard deviation* of a distrubtion.
+Your first task is to implement a *user-defined type* `Distribution` which holds the *arithmetic mean* and the *standard deviation* of a distrubtion.
 
 For an explanation of how to calculate the *arithmetic mean* and the *standard deviation*, see the end of this text.
 
 The type you implement must be called `Distribution` and be a `class` or `struct` template with:
 - a single template type, so `template<class T> class {};` or `template<class T> struct {};`
-- two public member variables `mean` and `stddev`
+- two public member variables `mean` and `stddev`, both of type `T`
 - a public member typedef `value_type` which aliases the template parameter
 - two constructors:
   - `Distribution(T, T)` which sets the two member variables
@@ -21,12 +21,12 @@ Both constructors must be able to support the following types for `T`:
 - `double`
 - `float`
 - `long`
-- `SpaceVector<double>` (from `SpaceVector.hpp`)
+- `SpaceVector<double, 3>` (from `SpaceVector.hpp`)
 
 **Hint**: `SpaceVector` already supports the required operators to calculate the mean and standard deviation.
-If you want to calculate the square root, you can use `sqrt` (**not** `std::sqrt`) which is available in `<cmath>` for built-in types and has been defined in `SpaceVector.hpp` for `SpaceVector<T>`.
+If you want to calculate the square root, you can use `sqrt` (**not** `std::sqrt`) which is also available in `<cmath>` for built-in types and has been defined in `SpaceVector.hpp` for `SpaceVector<T>`. Background: It is not allowed to implement anything in the `std` namespace (i.e., overloading `std::sqrt` for user-defined types).
 
-**Hint**: When accessing the elements of the passed `std::vector` object, use generic access methods like iterators, so you do not have to change your code for Task 2.
+**Hint**: When accessing the elements of the passed `std::vector` object, ideally you would use generic access methods from the beginning (i.e., range-base for loops or iterators), so you do not have to change your code for Task 2.
 
 ## Task 2
 
@@ -45,9 +45,10 @@ In order to do this, your constructor must also be templated and `T` deduced fro
 As usual, you are provided with several tests, which should guide you through the exercise.
 Completing them in order will be the simplest approach:
 - TestA_ClassMembers.cpp
-- TestB_Vector.hpp
-- TestC_List.cpp
-- TestD_Deque.cpp
+- TestB_Vector.cpp
+- TestC_SpaceVector.cpp
+- TestD_List.cpp
+- TestE_Deque.cpp
 
 ## Benchmark
 
