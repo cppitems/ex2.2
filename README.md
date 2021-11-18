@@ -61,20 +61,22 @@ cmake .. -D BUILD_BENCHMARK=ON
 ## Calculating *arithmetic mean* and *standard deviation*
 
 Let's assume we have a set of numbers: 
-<img src="set.png" height=30px>
+
+<img src="set_.png" height=80px>
 
 ### Arithmetic Mean
 
 The arithmetic mean is simply the average of all values in a distribution:
-<img src="mean.png" height=85px>
+
+<img src="mean_.png" height=90px>
 
 ### Standard Deviation
 
 First, we find the *variance* which is the square of the *standard deviation*.
 It is given by the average of the squared difference of each element to the mean:
 
-<img src="variance.png" height=180px>
+<img src="var_.png" height=100px>
 
 The square root of the variance is the standard deviation:
 
-<img src="stddev.png" height=100px>
+<img src="stddev_.png" height=100px>
